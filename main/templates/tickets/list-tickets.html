@@ -1,0 +1,61 @@
+{% extends "inicio/principal.html" %}
+{% block content %}
+<style>
+    table {
+        border-collapse: collapse
+    }
+
+    th {
+        text-align: center;
+    }
+
+    td,
+    h2 {
+        text-align: center;
+    }
+</style>
+<h2>LISTA DE TODOS MIS TICKETS</h1>
+    <table class="striped">
+        <thead>
+            <tr>
+
+                <th>Fecha Creación</th>
+
+                <th>Fecha Fin</th>
+
+                <th>Descripción</th>
+
+                <th>Estado</th>
+
+                <th>Opción</th>
+
+
+            </tr>
+        </thead>
+
+        <tbody>
+            {% for tik in lista_tickets %}
+            <tr>
+
+                <td>{{tik.fecha_inicio}}</td>
+
+                <td>{{tik.fecha_fin}}</td>
+
+                <td>{{tik.descripcion}}</td>
+
+                <td>{{tik.get_estado_display}}</td>
+
+
+                <td> <a href="{% url 'tickets:delete-tickets' tik.id %}"><button class="btn">ELIMINAR</button></a>
+                </td>
+
+            </tr>
+            {% endfor %}
+
+        </tbody>
+
+    </table>
+    <br>
+    <a href="{% url 'tickets:create-tickets' %}"><button class="btn">CREAR UN TICKET</button></a>
+
+    {% endblock %}

@@ -1,0 +1,13 @@
+{% extends "inicio/principal.html" %}
+{% block content %}
+<form method="POST" class="post-form">
+
+    {% csrf_token %}
+    {{form_registro.as_p}}
+    <button class="btn" type="submit">Crear!</button>
+    <br><br>
+
+</form>
+<br>
+
+{% endblock %}

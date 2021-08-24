@@ -1,0 +1,18 @@
+<nav>
+    <div class="nav-wrapper  blue lighten-1">
+        <a href="/" class="brand-logo">Empresa NETSOFT</a>
+        <ul id="nav-mobile" class="right hide-on-med-and-down">
+
+            <li><a href="/">Inicio</a></li>
+            {% if user.is_authenticated %}
+            <li><a href="/create-tickets">Crear Ticket</a></li>
+            <li><a href="/list-tickets">Tickets</a></li>
+            <li><a href="#">{{user.username}}</a></li>
+            <li><a href="/logout">Salir</a></li>
+            {% else %}
+            <li><a href="/registro">Registro</a></li>
+            <li><a href="/login">Entrar</a></li>
+            {% endif %}
+        </ul>
+    </div>
+</nav>
